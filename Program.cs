@@ -32,11 +32,9 @@ app.UseRouting();
 app.UseAuthorization();
 
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapRazorPages();
-    endpoints.MapHub<ChatHub>("/chathub");
+app.MapRazorPages();
 
-});
+// Configuração do hub SignalR
+app.MapHub<ChatHub>("/chathub");
 
 app.Run();

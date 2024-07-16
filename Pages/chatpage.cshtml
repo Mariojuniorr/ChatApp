@@ -3,22 +3,22 @@
 @{
     ViewData["Title"] = "Chat em Tempo Real";
 }
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
+            <a href="./index" class="btn btn-link"><i class="bi bi-arrow-left"></i></a>
             <h1 class="text-center">ChatBot Project</h1>
-            <div id="messagesContainer" class="border rounded p-3 mb-3" style="height: 400px; overflow-y: auto;">
+            <div id="messagesContainer" class="border rounded p-3 mb-4" style="height: 400px; overflow-y: auto;">
                 <ul id="messagesList" class="list-group"></ul>
             </div>
-            <div class="form-group">
-                <input type="text" id="userInput" class="form-control" placeholder="Nome do Usuário" />
-            </div>
-            <div class="form-group">
-                <input type="text" id="messageInput" class="form-control" placeholder="Mensagem" />
-            </div>
-            <div class="form-group text-center">
-                <button class="btn btn-primary" onclick="sendMessage()">Enviar</button>
+            <div class="input-group">
+                <input type="text" id="messageInput" class="form-control form-control-sm rounded-pill" placeholder="Digite sua mensagem..." style="border: 2px solid #007bff; padding: 19px 20px;" />
+                <div class="input-group-append">
+                    <button class="btn btn-success btn-sm rounded-pill" onclick="sendMessage()" style="padding: 5px 13px;">
+                        <i class="bi bi-send"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -35,10 +35,10 @@
         // Define o que fazer ao receber uma mensagem
         connection.on("ReceiveMessage", (user, message) => {
             const li = document.createElement("li");
-            li.className = "list-group-item";
+            li.className = "list-group-item text-right";
             li.textContent = `${user}: ${message}`;
             const messagesList = document.getElementById("messagesList");
-            messagesList.insertBefore(li, messagesList.firstChild);
+            messagesList.appendChild(li);
         });
 
         // Inicia a conexão com o SignalR
@@ -52,18 +52,26 @@
 
         // Função para enviar mensagem
         function sendMessage() {
-            const user = document.getElementById("userInput").value;
             const message = document.getElementById("messageInput").value;
 
             // Envia a mensagem para o Hub
-            connection.invoke("SendMessage", user, message)
+            connection.invoke("SendMessage", message)
                 .then(() => {
                     // Limpa o campo de mensagem após envio
                     document.getElementById("messageInput").value = '';
+                    const messagesContainer = document.getElementById("messagesContainer");
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
                 })
                 .catch(err => {
                     console.error("Erro ao enviar mensagem:", err.toString());
                 });
         }
+
+        // Event listener para enviar mensagem ao pressionar Enter
+        document.getElementById("messageInput").addEventListener("keydown", function (event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
     </script>
 }

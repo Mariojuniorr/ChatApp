@@ -1,5 +1,5 @@
 body {
-    background-color: #f8f9fa;
+    background-color: #dee2e6;
 }
 
 h1 {
@@ -10,9 +10,11 @@ h1 {
     max-height: 300px;
     overflow-y: auto;
     margin-top: 20px;
+    
 }
 
-    #messagesList .list-group-item {
-        background-color: #e9ecef;
-        border: 1px solid #dee2e6;
-    }
+#messagesList .list-group-item {
+     background-color: #e9ecef;
+     border: 1px solid #dee2e6;
+     margin: 2px;
+}
