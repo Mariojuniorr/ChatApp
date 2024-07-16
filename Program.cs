@@ -31,7 +31,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapRazorPages();
-app.MapHub<ChatHub>("/chathub");
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapRazorPages();
+    endpoints.MapHub<ChatHub>("/chathub");
+
+});
 
 app.Run();

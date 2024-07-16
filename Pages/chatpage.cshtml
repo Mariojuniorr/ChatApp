@@ -1,0 +1,69 @@
+﻿@page
+@model ChatModel
+@{
+    ViewData["Title"] = "Chat em Tempo Real";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">ChatBot Project</h1>
+            <div id="messagesContainer" class="border rounded p-3 mb-3" style="height: 400px; overflow-y: auto;">
+                <ul id="messagesList" class="list-group"></ul>
+            </div>
+            <div class="form-group">
+                <input type="text" id="userInput" class="form-control" placeholder="Nome do Usuário" />
+            </div>
+            <div class="form-group">
+                <input type="text" id="messageInput" class="form-control" placeholder="Mensagem" />
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-primary" onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.11/signalr.min.js"></script>
+    <script>
+        // Cria a conexão com o SignalR
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chathub")
+            .build();
+
+        // Define o que fazer ao receber uma mensagem
+        connection.on("ReceiveMessage", (user, message) => {
+            const li = document.createElement("li");
+            li.className = "list-group-item";
+            li.textContent = `${user}: ${message}`;
+            const messagesList = document.getElementById("messagesList");
+            messagesList.insertBefore(li, messagesList.firstChild);
+        });
+
+        // Inicia a conexão com o SignalR
+        connection.start()
+            .then(() => {
+                console.log("Conexão estabelecida.");
+            })
+            .catch(err => {
+                console.error("Erro ao estabelecer conexão:", err.toString());
+            });
+
+        // Função para enviar mensagem
+        function sendMessage() {
+            const user = document.getElementById("userInput").value;
+            const message = document.getElementById("messageInput").value;
+
+            // Envia a mensagem para o Hub
+            connection.invoke("SendMessage", user, message)
+                .then(() => {
+                    // Limpa o campo de mensagem após envio
+                    document.getElementById("messageInput").value = '';
+                })
+                .catch(err => {
+                    console.error("Erro ao enviar mensagem:", err.toString());
+                });
+        }
+    </script>
+}
