@@ -9,11 +9,11 @@
         <div class="col-md-12">
             <a href="./index" class="btn btn-link"><i class="bi bi-arrow-left"></i></a>
             <h1 class="text-center">ChatBot Project</h1>
-            <div id="messagesContainer" class="border rounded p-3 mb-4" style="height: 400px; overflow-y: auto;">
+            <div id="messagesContainer" class="border rounded p-3 mb-4" style="height: 400px; overflow-y:auto;">
                 <ul id="messagesList" class="list-group"></ul>
             </div>
             <div class="input-group">
-                <input type="text" id="messageInput" class="form-control form-control-sm rounded-pill" placeholder="Digite sua mensagem..." style="border: 2px solid #007bff; padding: 19px 20px;" />
+                <input type="text" id="messageInput" class="form-control form-control-sm " placeholder="Digite sua mensagem..." style="border: 2px solid #007bff; padding: 19px 20px;" />
                 <div class="input-group-append">
                     <button class="btn btn-success btn-sm rounded-pill" onclick="sendMessage()" style="padding: 5px 13px;">
                         <i class="bi bi-send"></i>
@@ -54,13 +54,16 @@
         function sendMessage() {
             const message = document.getElementById("messageInput").value;
 
+            if (message == '') { return; }
+
             // Envia a mensagem para o Hub
             connection.invoke("SendMessage", message)
                 .then(() => {
                     // Limpa o campo de mensagem após envio
                     document.getElementById("messageInput").value = '';
-                    const messagesContainer = document.getElementById("messagesContainer");
-                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                    // Rola para o final do container de mensagens
+                    messagesList.scrollTop = messagesList.scrollHeight;
+
                 })
                 .catch(err => {
                     console.error("Erro ao enviar mensagem:", err.toString());
