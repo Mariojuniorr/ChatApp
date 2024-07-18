@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-public class ChatModel : PageModel
+public class ProductsModel : PageModel
 {
     public void OnGet()
     {

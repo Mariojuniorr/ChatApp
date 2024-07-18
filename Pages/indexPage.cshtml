@@ -1,0 +1,26 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "P�gina Principal";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - My ASP.NET Core Application</title>
+    <link rel="stylesheet" href="~/css/indexPage.css"/>
+</head>
+<body>
+    <nav>
+        @await Html.PartialAsync("_Navbar")
+    </nav>
+
+    
+</body>
+
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+}
+
+
+</html>
