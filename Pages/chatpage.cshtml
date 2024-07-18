@@ -4,6 +4,7 @@
     ViewData["Title"] = "Chat em Tempo Real";
 }
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="~/wwwroot/css/chatPage.css" />
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
@@ -63,7 +64,6 @@
                     document.getElementById("messageInput").value = '';
                     // Rola para o final do container de mensagens
                     messagesList.scrollTop = messagesList.scrollHeight;
-
                 })
                 .catch(err => {
                     console.error("Erro ao enviar mensagem:", err.toString());
