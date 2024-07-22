@@ -1,9 +1,9 @@
 /********** Template CSS **********/
 :root {
-    --primary: #2124B1;
-    --secondary: #4777F5;
-    --light: #F7FAFF;
-    --dark: #1D1D27;
+    --primary: #6B4226;
+    --secondary: #556B2F;
+    --light: #9ACD32;
+    --dark: #D3D3D3;
 }
 
 html{
@@ -16,6 +16,7 @@ html{
     opacity: 0;
     visibility: hidden;
     transition: opacity .5s ease-out, visibility 0s linear .5s;
+    color: var(--primary) !important;
     z-index: 99999;
 }
 
