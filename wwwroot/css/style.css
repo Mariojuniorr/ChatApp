@@ -116,6 +116,12 @@ h6,
     max-height: 45px;
 }
 
+@media(max-width: 726px){
+    .btn-help{
+        display:none;
+    }
+}
+
 @media (max-width: 991.98px) {
     .sticky-top.navbar-light {
         position: absolute;
