@@ -1,14 +1,18 @@
 /********** Template CSS **********/
 :root {
-    --primary: #6B4226;
-    --secondary: #556B2F;
-    --light: #9ACD32;
-    --dark: #D3D3D3;
+    --primary: #556B2F;
+    --secondary: #6B4226;
+    --light: #D3D3D3;
+    --dark: #6B4226;
 }
 
 html{
     padding: 0;
     margin: 0;
+}
+
+body{
+    background-color: white;
 }
 
 /*** Spinner ***/
@@ -82,7 +86,6 @@ h6,
     font-weight: normal;
     border-radius: 50px;
 }
-
 
 /*** Navbar ***/
 .navbar-light .navbar-nav .nav-link {
@@ -313,7 +316,7 @@ h6,
     align-items: center;
     justify-content: center;
     color: var(--light);
-    background: url(../img/icon-shape-primary.png) center center no-repeat;
+   /*background: url(../img/icon-shape-primary.png) center center no-repeat;*/
     transition: .5s;
 }
 
