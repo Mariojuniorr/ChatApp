@@ -204,6 +204,45 @@ h6,
 }
 
 
+/*** Search ***/
+#searchModal .modal-body {
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px;
+    max-width: 650px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#searchModal .input-group {
+    width: 100%;
+}
+
+#searchModal .form-control {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-right: none;
+}
+
+#searchModal .input-group-append .btn {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: #f8f9fa;
+    border-left: none;
+}
+
+#searchModal .input-group-prepend .btn {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background-color: #f8f9fa;
+    border-right: none;
+}
+
+#searchModal .input-group-prepend .btn i,
+#searchModal .input-group-append .btn i {
+    color: #6c757d;
+}
+
 /*** Section Title ***/
 .section-title::before {
     position: absolute;
