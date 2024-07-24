@@ -104,6 +104,8 @@
 
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
+
+    // Search
     
 })(jQuery);
 

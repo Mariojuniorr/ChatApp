@@ -116,7 +116,7 @@ h6,
     max-height: 45px;
 }
 
-@media(max-width: 726px){
+@media(max-width: 742px){
     .btn-help{
         display:none;
     }
