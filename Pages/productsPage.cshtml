@@ -1,0 +1,19 @@
+@page
+@model ProductsModel
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Products</title>
+    <link rel="stylesheet" href="~/css/productsPage.css" />
+</head>
+<body>
+    <nav>
+        @await Html.PartialAsync("_Navbar")
+    </nav>
+
+</body>
+</html>
