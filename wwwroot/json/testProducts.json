@@ -1,0 +1,39 @@
+{
+  "Products":[
+    {
+      "id": "1",
+      "name": "Soja",
+      "product_type": "Grain",
+      "description": "...",
+      "quantidade_disp": 6,
+      "vendedor": "Grão Direto"
+    },
+
+    {
+      "id": "2",
+      "name": "Café",
+      "product_type": "Grain",
+      "description": "...",
+      "quantidade_disp": 10,
+      "vendedor": "Matheus"
+    },
+
+    {
+      "id": "3",
+      "name": "Trigo",
+      "product_type": "Grain",
+      "description": "...",
+      "quantidade_disp": 3,
+      "vendedor": "Mier"
+    },
+
+    {
+      "id": "4",
+      "name": "Arroz",
+      "product_type": "Grain",
+      "description": "...",
+      "quantidade_disp": 8,
+      "vendedor": "Grão Direto"
+    }
+  ]
+}

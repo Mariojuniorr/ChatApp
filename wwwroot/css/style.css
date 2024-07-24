@@ -192,24 +192,6 @@ h6,
 }
 
 
-/*** Hero Header ***/
-.hero-header {
-    background:
-        url(../img/bg-dot.png),
-        url(../img/bg-dot.png),
-        url(../img/bg-round.png),
-        url(../img/bg-tree.png),
-        url(../img/bg-bottom-hero.png);
-    background-position:
-        10px 10px,
-        bottom 190px right 10px,
-        left 55% top -1px,
-        left 45% bottom -1px,
-        center bottom -1px;
-    background-repeat: no-repeat;
-}
-
-
 /*** Search ***/
 #searchModal .modal-body {
     background-color: white;
@@ -249,55 +231,12 @@ h6,
     color: #6c757d;
 }
 
-/*** Section Title ***/
-.section-title::before {
-    position: absolute;
-    content: "";
-    width: 45px;
-    height: 4px;
-    bottom: 0;
-    left: 0;
-    background: var(--dark);
-}
-
-.section-title::after {
-    position: absolute;
-    content: "";
-    width: 4px;
-    height: 4px;
-    bottom: 0;
-    left: 50px;
-    background: var(--dark);
-}
-
-.section-title.text-center::before {
-    left: 50%;
-    margin-left: -25px;
-}
-
-.section-title.text-center::after {
-    left: 50%;
-    margin-left: 25px;
-}
-
-.section-title h6::before,
-.section-title h6::after {
-    position: absolute;
-    content: "";
-    width: 10px;
-    height: 10px;
-    top: 2px;
-    left: 0;
-    background: rgba(33, 66, 177, .5);
-}
-
-.section-title h6::after {
-    top: 5px;
-    left: 3px;
-}
-
 
 /*** Service ***/
+li{
+    list-style:none;
+}
+
 .service-item {
     position: relative;
     height: 350px;
